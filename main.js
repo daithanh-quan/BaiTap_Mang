@@ -2,8 +2,10 @@
 let arrayNumber = []
 function getValue() {
   var inputNumber = parseInt(document.getElementById('inputNumber').value)
+  if (!inputNumber) return
   var result = document.querySelector('.result')
   arrayNumber.push(inputNumber)
+  document.getElementById('inputNumber').value = ''
   return (result.innerHTML = arrayNumber.join(','))
 }
 
@@ -64,12 +66,12 @@ document.querySelector('.btnPositiveMin').onclick = PositiveMin
 // Bài 5: tìm số chẵn cuối cùng
 function LastEvenNum() {
   var even = 0
-  var txLastEvenNum = document.querySelector('.txLastEvenNum')
+  var txtLastEvenNum = document.querySelector('.txLastEvenNum')
   for (let i = 0; i < arrayNumber.length; i++) {
     var element = arrayNumber[i]
     if (element % 2 === 0) even = element
   }
-  return (txLastEvenNum.innerHTML = 'Số chẵn cuối cùng: ' + even)
+  return (txtLastEvenNum.innerHTML = 'Số chẵn cuối cùng: ' + even)
 }
 document.querySelector('.btnLastEvenNum').onclick = LastEvenNum
 
@@ -77,11 +79,12 @@ document.querySelector('.btnLastEvenNum').onclick = LastEvenNum
 function handleChange() {
   var value1 = parseInt(document.getElementById('value1').value)
   var value2 = parseInt(document.getElementById('value2').value)
+  if (!value1 || !value2) return
   var txtChange = document.querySelector('.txtChange')
   var element = arrayNumber[value1]
   arrayNumber[value1] = arrayNumber[value2]
   arrayNumber[value2] = element
-  txtChange.innerHTML = arrayNumber.join(',')
+  return (txtChange.innerHTML = arrayNumber.join(','))
 }
 document.querySelector('.btnChange').onclick = handleChange
 
@@ -113,7 +116,7 @@ function getFirstPrime() {
       break
     }
   }
-  txtFirstPrime.innerHTML = 'Số nguyên tố đầu tiên: ' + firstNum
+  return (txtFirstPrime.innerHTML = 'Số nguyên tố đầu tiên: ' + firstNum)
 }
 
 document.querySelector('.btnFirstPrime').onclick = getFirstPrime
@@ -122,8 +125,10 @@ document.querySelector('.btnFirstPrime').onclick = getFirstPrime
 let newArrayNumber = []
 function getNewValue() {
   var inputNumber2 = parseFloat(document.getElementById('inputNumber2').value)
+  if (!inputNumber2) return
   var result2 = document.querySelector('.result2')
   newArrayNumber.push(inputNumber2)
+  document.getElementById('inputNumber2').value = ''
   return (result2.innerHTML = newArrayNumber.join(','))
 }
 

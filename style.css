@@ -5,3 +5,7 @@
 a {
   color:rgb(48, 47, 47) !important;
 }
+nav {
+  width: 100%  ;
+  letter-spacing: 2;
+}
